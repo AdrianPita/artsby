@@ -41,6 +41,8 @@ gem "pundit"
 
 gem 'jquery-ui-rails'
 
+gem 'devise'
+
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', require: false
@@ -58,7 +60,15 @@ group :production do
   gem 'rails_12factor'
 end
 
-#gem 'foundation-rails'
+gem 'foundation-rails'
+
+#gem 'omniauth-twitter'
+
+#gem 'omniauth-facebook'
+
+#gem 'omniauth-google-oauth2'
+
+#gem 'omniauth-identity'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.1.2'
