@@ -1,5 +1,8 @@
 ArtsbyIronhack::Application.routes.draw do
   devise_for :users
+  
+  resources :users
+  
   get '/home' => "static_pages#home"
   get '/help' => "static_pages#help"
   get '/about' => "static_pages#about"
@@ -8,6 +11,8 @@ ArtsbyIronhack::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   root :to => "static_pages#home"
+
+  
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
