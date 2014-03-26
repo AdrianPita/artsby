@@ -1,7 +1,12 @@
 ArtsbyIronhack::Application.routes.draw do
   devise_for :users
   
-  resources :users
+  resources :users do
+    member do
+      get :following, :followers
+    end
+  end
+  resources :relationships, only: [:create, :destroy]
   
   get '/home' => "static_pages#home"
   get '/help' => "static_pages#help"

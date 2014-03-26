@@ -1,12 +1,14 @@
 class UsersController < ApplicationController
-	
-	def index 
+	#before_action :signed_in_user, only: [:edit, :update]
+	#before_action :correct_user,   only: [:edit, :update]
+
+  def index 
 		@users = User.all
 	end
 
 	def show
     @user = User.find(params[:id])
-    @user = current_user
+    #@user = current_user
   end
 
   def edit
@@ -27,4 +29,13 @@ class UsersController < ApplicationController
   def edit_params
   	params.require(:user).permit(:name, :email, :password)
   end
+
+  #def signed_in_user
+   # redirect_to signin_url, notice: "Please sign in." unless signed_in?
+  #end
+
+  #def correct_user
+    #@user = User.find(params[:id])
+    #redirect_to(root_url) unless current_user?(@user)
+  #end
 end

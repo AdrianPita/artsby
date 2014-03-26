@@ -1,6 +1,27 @@
-<h1>
+<div>
+<section>
 <%= gravatar_for @user %>
+<%= @user.name %>
 <%= @user.email %>
-
-</h1>
-<li><%= link_to "Log out", destroy_user_session_path, method: :delete %></li>
+</section>
+<div class="stats">
+  <a href="<%= following_user_path(@user) %>">
+    <strong id="following" class="stat">
+      <%= @user.followed_users.count %>
+    </strong>
+    following
+  </a>
+  <a href="<%= followers_user_path(@user) %>">
+    <strong id="followers" class="stat">
+      <%= @user.followers.count %>
+    </strong>
+    followers
+  </a>
+  <div>
+  	<%= render 'follow_form' if signed_in? %>
+  </div>
+</div>
+<p>
+	<%= link_to "Log out", destroy_user_session_path, method: :delete %>
+</p>
+</div>
