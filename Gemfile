@@ -62,6 +62,10 @@ end
 
 gem 'foundation-rails'
 
+#gem "rmagick"
+
+gem "carrierwave"
+
 #gem 'omniauth-twitter'
 
 #gem 'omniauth-facebook'

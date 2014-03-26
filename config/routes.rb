@@ -1,4 +1,5 @@
 ArtsbyIronhack::Application.routes.draw do
+ 
   devise_for :users
   
   resources :users do
@@ -7,7 +8,10 @@ ArtsbyIronhack::Application.routes.draw do
     end
   end
   resources :relationships, only: [:create, :destroy]
+  resources :paintings, only: [:create, :destroy, :new, :index, :show]
   
+  root :to => "static_pages#home"
+
   get '/home' => "static_pages#home"
   get '/help' => "static_pages#help"
   get '/about' => "static_pages#about"
@@ -15,8 +19,7 @@ ArtsbyIronhack::Application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  root :to => "static_pages#home"
-
+  
   
 
   # Example of regular route:
