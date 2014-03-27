@@ -10,11 +10,10 @@ ArtsbyIronhack::Application.routes.draw do
   resources :relationships, only: [:create, :destroy]
   resources :paintings, only: [:create, :destroy, :new, :index, :show]
   
-  root :to => "static_pages#home"
+  root :to => "homes#home"
 
-  get '/home' => "static_pages#home"
-  get '/help' => "static_pages#help"
-  get '/about' => "static_pages#about"
+  get '/help' => "homes#help"
+  get '/about' => "homes#about"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

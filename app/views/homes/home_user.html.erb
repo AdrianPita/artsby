@@ -1,26 +1,28 @@
+hola usuario
 <div>
 <section>
 <%= gravatar_for @user %>
 <%= @user.name %>
 <%= @user.email %>
+<%= link_to "Edit", edit_user_path(@user) %>
 </section>
 <div class="stats">
-  <a href="<%= following_user_path(@user) %>">
     <strong id="following" class="stat">
       <%= @user.followed_users.count %>
     </strong>
     following
-  </a>
-  <a href="<%= followers_user_path(@user) %>">
     <strong id="followers" class="stat">
       <%= @user.followers.count %>
     </strong>
     followers
-  </a>
-  <div>
-    <%= render 'follow_form' if signed_in? %>
-  </div>
 </div>
-  <% @paintings.each do |painting| %>
-  <%= image_tag painting.picture_url %>
-  <% end %>
+<div class="followers">
+	<ul>
+		<% @followers.each do |follower| %>
+		<li><%= follower.name %></li>
+		<li><%= follower.email %></li>
+		<% end %>
+	</ul>
+<%= link_to "Log Out", destroy_user_session_path, method: :delete %>
+</div>
+</div>

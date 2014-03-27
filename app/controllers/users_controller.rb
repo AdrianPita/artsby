@@ -13,6 +13,7 @@ class UsersController < ApplicationController
 
   def edit
   	@user = User.find(params[:id])
+    @paintings = @user.paintings
   end
 
   def update

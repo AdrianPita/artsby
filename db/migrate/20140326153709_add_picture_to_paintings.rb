@@ -1,5 +1,6 @@
 class AddPictureToPaintings < ActiveRecord::Migration
   def change
-    add_column :paintings, :image, :string
+    add_column :paintings, :picture, :string
+
   end
 end

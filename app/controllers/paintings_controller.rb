@@ -14,6 +14,7 @@ class PaintingsController < ApplicationController
 
   def create
   	@painting = Painting.new(painting_params)
+    @painting.user = current_user
 
   	if @painting.save
   		redirect_to @painting, notice: "You have upload #{@painting.name} succesfully"
@@ -32,6 +33,6 @@ class PaintingsController < ApplicationController
   private
 
   def painting_params
-  	params.permit(:name, :description, :picture)
+  	params.require(:painting).permit(:name, :description, :picture, :filename, :tempfile, :original_filename)
   end
 end
