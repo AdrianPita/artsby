@@ -8,7 +8,9 @@ ArtsbyIronhack::Application.routes.draw do
     end
   end
   resources :relationships, only: [:create, :destroy]
-  resources :paintings, only: [:create, :destroy, :new, :index, :show]
+  resources :paintings, only: [:create, :destroy, :new, :index, :show] do
+    resources :comments, only: [:create]
+  end
   
   root :to => "homes#home"
 

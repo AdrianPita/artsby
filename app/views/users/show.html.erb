@@ -23,4 +23,11 @@
 </div>
   <% @paintings.each do |painting| %>
   <%= image_tag painting.picture_url %>
+  <%= form_for [painting, Comment.new] do |f| %>
+    <div class="field">
+      <%= f.label :body, "Comment" %><br>
+      <%= f.text_area :body %>
+    </div>
+      <%= f.submit "Comment!" %> 
+    <% end %>
   <% end %>

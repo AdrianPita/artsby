@@ -1,6 +1,6 @@
 class PaintingsController < ApplicationController
- before_action :correct_user,   only: :destroy
-  
+ #before_action :correct_user,   only: :destroy
+
   def index
   	@paintings = Painting.all
   end
@@ -26,7 +26,7 @@ class PaintingsController < ApplicationController
   end
 
   def destroy
-  	#@painting = Painting.find(params[:id])
+  	@painting = Painting.find(params[:id])
 
   	@painting.destroy
   	redirect_to painting_path
@@ -37,8 +37,9 @@ class PaintingsController < ApplicationController
   def painting_params
   	params.require(:painting).permit(:name, :description, :picture, :filename, :tempfile, :original_filename)
   end
-  def correct_user
-    @painting = current_user.paintings.find_by(id: params[:id])
-    redirect_to painting_url if @painting.nil?
-  end
+  
+  #def correct_user
+   # @painting = current_user.paintings.find_by(id: params[:id])
+   # redirect_to painting_url if @painting.nil?
+  #end
 end

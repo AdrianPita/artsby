@@ -9,6 +9,7 @@ class User < ActiveRecord::Base
   has_many :paintings, dependent: :destroy
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
+  has_many :comments
   #validates :name, presence: true
   
   #validates :email, presence: true
