@@ -17,6 +17,8 @@
 <p>
   <% @paintings.each do |painting| %>
   <%= image_tag painting.picture_url %>
+  <%= link_to "Edit", paintings_path(painting) %>
+  <%= link_to "Delete", painting, method: :delete %>
   <% end %>
   <br>
   <%= link_to "Upload", new_painting_path %>

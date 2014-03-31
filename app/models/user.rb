@@ -6,7 +6,7 @@ class User < ActiveRecord::Base
   has_many :followed_users, through: :relationships, source: :followed
   has_many :reverse_relationships, foreign_key: "followed_id", class_name:  "Relationship", dependent: :destroy
   has_many :followers, through: :reverse_relationships, source: :follower
-  has_many :paintings
+  has_many :paintings, dependent: :destroy
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
   #validates :name, presence: true
