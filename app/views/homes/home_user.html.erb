@@ -20,7 +20,7 @@ hola usuario
 	<ul>
 		<% @followers.each do |follower| %>
 		<li><%= follower.name %></li>
-		<li><%= follower.email %></li>
+		<!--<li><%= follower.email %></li>-->
 		<% end %>
 	</ul>
 <%= link_to "Log Out", destroy_user_session_path, method: :delete %>

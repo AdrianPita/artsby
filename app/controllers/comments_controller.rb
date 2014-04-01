@@ -3,7 +3,7 @@ class CommentsController < ApplicationController
     #@comment = Comment.new(params[:comment])
  	@painting = Painting.find(params[:painting_id])
 
- 	@comment = @painting.comments.builder comment_params
+ 	@comment = @painting.comments.build comment_params
  	@comment.user = current_user
  	
     if @comment.save

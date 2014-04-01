@@ -11,7 +11,7 @@ class PaintingsController < ApplicationController
 
   def show
   	@painting = Painting.find(params[:id])
-    #@painting.user = current_user
+    @painting.user = current_user
   end
 
   def create
@@ -29,7 +29,7 @@ class PaintingsController < ApplicationController
   	@painting = Painting.find(params[:id])
 
   	@painting.destroy
-  	redirect_to painting_path
+  	redirect_to :back
   end
 
   private

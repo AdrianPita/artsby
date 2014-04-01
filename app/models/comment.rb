@@ -1,5 +1,5 @@
 class Comment < ActiveRecord::Base
 	belongs_to :user
-  belongs_to :events
+  belongs_to :painting
 
 end
