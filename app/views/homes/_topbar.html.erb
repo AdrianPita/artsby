@@ -1,0 +1,24 @@
+<nav class="top-bar" data-topbar>
+  <ul class="title-area">
+    <li class="name">
+      <h1><a href="#">Artsby</a></h1>
+    </li>
+    <li class="toggle-topbar menu-icon"><a href="#">Menu</a></li>
+  </ul>
+
+  <section class="top-bar-section">
+    <!-- Right Nav Section -->
+    <ul class="right">
+      <li class="has-dropdown">
+        <a href="#">Profile</a>
+        <ul class="dropdown">
+          <li><a <%= link_to "Log Out", destroy_user_session_path, method: :delete %></a></li>
+        </ul>
+      </li>
+    </ul>
+       <!-- Left Nav Section -->
+    <ul class="left">
+      <li><a <%= link_to "Home", users_path %></a></li>
+    </ul>
+  </section>
+</nav>
